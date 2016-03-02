@@ -68,6 +68,12 @@ def upvote
 	@topic.votes.create
 	redirect_to(topic_path)
 end
+def downvote
+	@topic = Topic.find(params[:id])
+	@topic.votes.first.destroy
+	redirect_to(topic_path)
+end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
